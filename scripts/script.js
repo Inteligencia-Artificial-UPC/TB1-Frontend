@@ -173,7 +173,7 @@ function iniciarMap() {
   }
 
   btnEnviar.onclick = function () {
-    let url = 'http://localhost:5000/';
+    let url = 'https://tb1-ia-202002.herokuapp.com/';
 
     
     let val = document.querySelector('input[name="heuristic"]:checked').value == 1? true : false;
