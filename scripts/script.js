@@ -3,16 +3,20 @@ const btnLimpiar = document.getElementById("limpiar");
 const btnImportar = document.getElementById("importar");
 const fileSelect = document.getElementById("file-select");
 const btnExportar = document.getElementById("exportar");
+const btnLast = document.getElementById("last-step");
 
 const stepperEl = document.getElementById('stepper')
 
 let step = 0;
 let stepper = undefined;
 
+function goToStep(number) {
+  stepper.to(number);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
   stepper = new Stepper(stepperEl, { linear: false })
-
   stepperEl.addEventListener('shown.bs-stepper', function (event) {
     step = event.detail.indexStep;
   })
@@ -170,6 +174,10 @@ function iniciarMap() {
     } catch (error) {
       throw "El archivo seleccionado no es válido"
     }
+  }
+
+  btnLast.onclick = function () {
+    stepper.next();
   }
 
   btnEnviar.onclick = function () {
